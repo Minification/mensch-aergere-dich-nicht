@@ -1,0 +1,14 @@
+Aggressiv
+1. Figur, die am nächsten am Ziel ist, bewegen
+2. Andere schlagen
+3. "Gleichstand" auflösen durch schauen auf andere Figuren, die ggf. direkt vor ihrem Ziel sind
+
+
+
+
+
+Fehlt:
+- Wenn bei einer 6 auf der Startposition ein eigener Spieler ist, dann wird der eigene Spieler von der Startposition bewegt und eine neue Figur auf die Startposition gesetzt
+- Wenn bei einer 6 ein anderer Spieler auf der eigenen Startposition ist, dann wird dieser geschlagen und die eigene Figur auf die eigene Startposition gesetzt
+- Wenn eine 6 gewürfelt wurde, darf man noch einmal nach seinem Zug würfeln
+- Wenn die 6 Schritte nach der Startposition eine eigene Spielfigur steht und eine 6 gewürfelt wird, dann muss zuerst die Spielfigur auf Position 6 bewegt werden, dann erst kann die eigene Spielfigur auf Start gesetzt und dann erneut gewürfelt werden

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%m%n" />
+        </Console>
+        <!-- <File name="MyFile" fileName="logs/log.log" immediateFlush="false" append="false">
+            <PatternLayout pattern="%m%n"/>
+        </File> -->
+        <RollingFile
+                name="MyFile"
+                fileName="logs/log.log"
+                filePattern="logs/log.%d{hh-mm-ss}.log"
+        >
+            <PatternLayout pattern="%m%n"/>
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <!--
+                  * only files in the log folder, no sub folders
+                  * only rolled over log files (name match)
+                  * either when more than 10 matching files exist or when the max disk usage is exceeded
+                -->
+                <Delete basePath="logs" maxDepth="1">
+                    <IfFileName glob="*.log">
+                        <IfAny>
+                            <IfAccumulatedFileSize exceeds="100 MB" />
+                            <IfAccumulatedFileCount exceeds="10" />
+                        </IfAny>
+                    </IfFileName>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="error">
+            <!-- <AppenderRef ref="Console" /> -->
+            <AppenderRef ref="MyFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
